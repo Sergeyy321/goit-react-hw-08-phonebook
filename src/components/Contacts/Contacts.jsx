@@ -15,7 +15,7 @@ export const Contacts = () => {
  };
   const dispatch = useDispatch();
  useEffect(() => {
-   dispatch(fetchContacts()); // діспатчимо екшен
+   dispatch(fetchContacts());
  }, [dispatch]);
 
 
