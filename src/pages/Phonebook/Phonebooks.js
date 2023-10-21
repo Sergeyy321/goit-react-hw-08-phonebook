@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
 import { selectError, selectIsLoading } from 'redux/selectors';
-
+import {PhonebookStyled} from 'pages/Phonebook/Phonebook.styled.js'
 export default function Phonebooks() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -16,14 +16,14 @@ export default function Phonebooks() {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <PhonebookStyled>
+      <h2>Phonebook</h2>
       <Phonebook />
       <h2>Contacts</h2>
       <Filter />
-      {/* <Contacts /> */}
-      {/* {isLoading && !error && <Loader />} */}
-    </div>
+      <Contacts /> 
+       {isLoading && !error && <Loader />}
+    </PhonebookStyled>
   );
 }
 

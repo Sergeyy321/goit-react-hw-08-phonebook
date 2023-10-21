@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
-
+import {Btn,Input,PhonebookStyled} from 'components/Phonebook/Phonebook.styled'
 export const Phonebook = () => {
   
   const dispatch = useDispatch();
@@ -27,28 +27,24 @@ export const Phonebook = () => {
     );
     form.reset();
   };
-console.log(selectContacts,'2');
+
   return (
     <form onSubmit={handleSubmit} >
-      <div>
-        <span style={{ position: 'absolute' }}>
-       1
-        </span>
-        <input
-          
+      <PhonebookStyled>
+       
+        <Input
+          placeholder='name'
           type="text"
           name="text"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </div>
+      </PhonebookStyled>
       <div >
-        <span style={{ position: 'absolute', margin: '2px 2px 2px 1px' }}>
-          2
-        </span>
-        <input
-        
+     
+        <Input
+        placeholder='phone'
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -56,7 +52,7 @@ console.log(selectContacts,'2');
           required
         />
       </div>
-      <button type="submit">Add contact</button>
+      <Btn type="submit">Add contact</Btn>
     </form>
   );
 };

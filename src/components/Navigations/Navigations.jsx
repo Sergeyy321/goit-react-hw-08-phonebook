@@ -18,7 +18,7 @@ text-decoration:none;
       color: #ff0000;
     }
   `;
-  const { isLoggedIn } = useSelector(selectIsLoggedIn);
+  const  isLoggedIn  = useSelector(selectIsLoggedIn);
   return (
     <>
       <header >

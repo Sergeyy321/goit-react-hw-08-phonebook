@@ -32,12 +32,12 @@ const Navigation = lazy(() => import('./Navigations/Navigations'));
 const Home = lazy(() => import('pages/Home'));
 const NotFound = lazy(() => import('pages/NotFound'));
 const Login = lazy(() => import('pages/LoginForm/LoginForm'));
-const Phonebook = lazy(() => import('pages/Phonebooks'));
+const Phonebook = lazy(() => import('pages/Phonebook/Phonebooks'));
 const Register = lazy(() => import('pages/RegisterForm/RegisterForm'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useSelector(selectIsRefreshing);
+  const  isRefreshing  = useSelector(selectIsRefreshing);
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
