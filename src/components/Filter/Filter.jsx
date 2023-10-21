@@ -2,7 +2,7 @@ import { Input } from './FIlter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { qwery } from 'redux/sliceFilters';
-import { selectFilter } from 'redux/selector';
+import { selectFilter } from 'redux/selectors';
 export const Filter = () => {
   const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ export const Filter = () => {
         id={id}
         type="text"
         value={filter}
-        onChange={evt => dispatch(qwery(evt.currentTarget.value))}
+        onChange={evt => dispatch(qwery(evt.target.value))}
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"

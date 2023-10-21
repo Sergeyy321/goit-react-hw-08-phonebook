@@ -31,9 +31,9 @@ import {useSelector} from'react-redux'
 const Navigation = lazy(() => import('./Navigations/Navigations'));
 const Home = lazy(() => import('pages/Home'));
 const NotFound = lazy(() => import('pages/NotFound'));
-const Login = lazy(() => import('pages/Login'));
-const Phonebook = lazy(() => import('components/Phonebook/Phonebook'));
-const Register = lazy(() => import('pages/Register'));
+const Login = lazy(() => import('pages/LoginForm/LoginForm'));
+const Phonebook = lazy(() => import('pages/Phonebooks'));
+const Register = lazy(() => import('pages/RegisterForm/RegisterForm'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -72,7 +72,7 @@ export const App = () => {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {/* <Footer></Footer> */}
+   
     </Suspense>
   );
 };

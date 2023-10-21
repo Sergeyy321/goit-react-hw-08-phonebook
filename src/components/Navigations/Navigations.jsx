@@ -9,6 +9,11 @@ const UserMenu = lazy(() => import('components/UserMenu/UserMenu'));
 
 export default function Navigation() {
   const StyledLink = styled(NavLink)`
+    justify-content: space-around;
+    color:white;
+text-decoration:none;
+    background-color: #657cfc;
+    display: flex;
     &.active {
       color: #ff0000;
     }
@@ -24,7 +29,7 @@ export default function Navigation() {
           {isLoggedIn ? (
             <>
               <StyledLink  to="/contacts" end>
-              
+              Contacts
               </StyledLink>
               <UserMenu />
             </>

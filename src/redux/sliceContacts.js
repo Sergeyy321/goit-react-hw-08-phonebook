@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from './auth/operations';
-
 import { fetchContacts, addContact, deleteContact } from './operations';
 
 const handlePending = state => {
@@ -18,37 +17,37 @@ export const sliceContact = createSlice({
     items: [],
     isLoading: false,
     error: null,
+    filter: '',
   },
-  reducers: {},
 
   extraReducers: {
-    [fetchContacts.pending](state, action) {
-      state.isLoading = true;
-    },
+    //fetchContact
+    [fetchContacts.pending]: handlePending,
+    [fetchContacts.rejected]: handleRejected,
     [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
     },
-    [fetchContacts.rejected](state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
+    //addContact
     [addContact.pending]: handlePending,
+    [addContact.rejected]: handleRejected,
     [addContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items.push(action.payload);
     },
-    [addContact.rejected]: handleRejected,
+    //deleteContact
     [deleteContact.pending]: handlePending,
+    [deleteContact.rejected]: handleRejected,
     [deleteContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      const contactId = action.payload;
-      state.items = state.items.filter(contact => contact.id !== contactId.id);
+      const index = state.items.findIndex(
+        task => task.id === action.payload.id
+      );
+      state.items.splice(index, 1);
     },
-    [deleteContact.rejected]: handleRejected,
     [logOut.fulfilled](state) {
       state.items = [];
       state.error = null;
@@ -56,6 +55,7 @@ export const sliceContact = createSlice({
     },
   },
 });
+
 export const tasksReducer = sliceContact.reducer;
-export const { fetchingInProgress, fetchingSuccess, fetchingError } =
-  sliceContact.actions;
+// export const { fetchingInProgress, fetchingSuccess, fetchingError } =
+//   sliceContact.actions;
