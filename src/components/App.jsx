@@ -41,38 +41,38 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  return isRefreshing ? (
-    <Loader />
-  ) : (
-    <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<Home />} />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute
-                redirectTo="/contacts"
-                component={<Register />}
-              />
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute redirectTo="/contacts" component={<Login />} />
-            }
-          />
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute redirectTo="/login" component={<Phonebook />} />
-            }
-          />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-   
-    </Suspense>
-  );
+   return isRefreshing ? (
+     <Loader />
+   ) : (
+     <Suspense fallback={<Loader />}>
+       <Routes>
+         <Route path="/" element={<Navigation />}>
+           <Route index element={<Home />} />
+           <Route
+             path="/register"
+             element={
+               <RestrictedRoute
+                 redirectTo="/contacts"
+                 component={<Register />}
+               />
+             }
+           />
+           <Route
+             path="/login"
+             element={
+               <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+             }
+           />
+           <Route
+             path="/contacts"
+             element={
+               <PrivateRoute redirectTo="/login" component={<Phonebook />} />
+             }
+           />
+         </Route>
+         <Route path="*" element={<NotFound />} />
+       </Routes>
+      
+     </Suspense>
+   );
 };

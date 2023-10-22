@@ -1,4 +1,4 @@
-import { Phonebook } from 'components/Phonebook/Phonebook';
+import { Addcontact } from 'components/Phonebook/Addcontact';
 import { Contacts } from 'components/Contacts/Contacts';
 import { Filter } from 'components/Filter/Filter';
 import { Loader } from 'components/Loader/loader';
@@ -18,7 +18,7 @@ export default function Phonebooks() {
   return (
     <PhonebookStyled>
       <h2>Phonebook</h2>
-      <Phonebook />
+      <Addcontact />
       <h2>Contacts</h2>
       <Filter />
       <Contacts /> 

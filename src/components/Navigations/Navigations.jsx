@@ -1,9 +1,10 @@
 import { Loader } from 'components/Loader/loader';
 import {useSelector} from 'react-redux'
 import { lazy, Suspense } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink,Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
+import { Phonebooks } from 'pages/Phonebook/Phonebooks';
 
 const UserMenu = lazy(() => import('components/UserMenu/UserMenu'));
 
@@ -21,24 +22,24 @@ text-decoration:none;
   const  isLoggedIn  = useSelector(selectIsLoggedIn);
   return (
     <>
-      <header >
+      <header>
         <nav>
-          <StyledLink  to="/" end>
-          Home
+          <StyledLink to="/" end>
+            Home
           </StyledLink>
           {isLoggedIn ? (
             <>
-              <StyledLink  to="/contacts" end>
-              Contacts
+              <StyledLink to="/contacts" end>
+                Contacts
               </StyledLink>
               <UserMenu />
             </>
           ) : (
             <>
-              <StyledLink  to="/register" end>
+              <StyledLink to="/register" end>
                 Register
               </StyledLink>
-              <StyledLink  to="/login" end>
+              <StyledLink to="/login" end>
                 Login
               </StyledLink>
             </>
@@ -46,9 +47,7 @@ text-decoration:none;
         </nav>
       </header>
 
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      <Suspense fallback={<Loader />}><Outlet/></Suspense>
     </>
   );
 }

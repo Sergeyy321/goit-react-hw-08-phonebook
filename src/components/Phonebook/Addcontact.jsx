@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
-import {Btn,Input,PhonebookStyled} from 'components/Phonebook/Phonebook.styled'
-export const Phonebook = () => {
+import {Btn,Input,PhonebookStyled} from 'components/Phonebook/Addcontact.styled'
+export const Addcontact = () => {
   
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
