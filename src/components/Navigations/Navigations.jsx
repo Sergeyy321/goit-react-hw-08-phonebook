@@ -4,7 +4,7 @@ import { lazy, Suspense } from 'react';
 import { NavLink,Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
-import { Phonebooks } from 'pages/Phonebook/Phonebooks';
+
 
 const UserMenu = lazy(() => import('components/UserMenu/UserMenu'));
 
